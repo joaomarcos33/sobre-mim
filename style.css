@@ -1,103 +1,30 @@
-body{
-    background-color: aqua;
+
     
-}
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-  }
+
 
   header {
     background: linear-gradient(to right, #007BFF, #FF69B4);
-    padding: 20px;
-    text-align: center;
-    color: white;
+    padding: 1rem 2rem 1rem 2rem;
+    box-shadow: o 4px 8px black (0, 0, 0, 0, 0.1);
+    position: sticky; 
+    top: 0;
   }
 
-  nav ul {
-    list-style: none;
-    padding: 0;
+  header ul{
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 1rem;
   }
 
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-
-  nav ul li a:hover {
-    color: #ffe4f0;
-  }
-
-  h1, h2 {
-    text-align: center;
-    color: #007BFF;
-  }
-
-  section {
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-
-  ul, ol {
-    padding-left: 20px;
-  }
-
-  li {
-    margin-bottom: 8px;
-  }
-
-  a {
-    color: #FF69B4;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  img {
-    display: block;
-    margin: 20px auto;
-    border-radius: 50%;
-    border: 5px solid rgb(0, 0, 0);
+  ul{
+    display: flex;
+    justify-content: center;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-  }
-
-  input[type="text"], input[type="range"], textarea {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #FF69B4;
-  }
-
-  input[type="submit"], button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #FF69B4;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  input[type="submit"]:hover, button:hover {
-    background-color: #e0559f;
+    gap: 1rem;
   }
 
   address {
@@ -109,15 +36,47 @@ body {
 
   footer {
     text-align: center;
-    margin-top: 30px;
-    padding: 10px;
+    margin-top: 2rem;
+    padding: 1rem;
     color: #888;
   }
 
   body{
       background-color: aqua;
+      font-family: 'Times New Roman', Times, serif;
   }
   
   h1{
+    font-size: 2em;
     font-weight: bold;
+  }
+  /*  1rem = 16px*/
+  h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  nav a{
+    color: white;
+    font-weight:700;
+    padding: .5rem 1rem;
+
+  }
+  header a:hover{
+    background-color: aqua;
+  }
+   
+  section{
+    /*margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin: 1rem;*/
+    margin: 1rem;
+    padding: 1rem;
+    /*border-color: purple;
+    border-width: 1px;
+    border-style: solid;*/
+    border: 1px solid black
+    
   }
