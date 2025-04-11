@@ -8,18 +8,22 @@
     <title hidden>sobre mim</title>
     <link rel="stylesheet" href="style.css">
     
+    
     <!-- META INFORMAÇÕES SOBRE A PAGINA -->
 </head>
 <!-- HTML NÃO TEM PESCOÇO --> 
 <body>
-    <h1 style="color: cyan;">sobre mim</h1>
+    <canvas id="canvasEstrelas"></canvas>
+    <h1 style="color: rgb(0, 0, 0);">sobre mim</h1>
     <!--code injected by live server-->
 
     <img src="https://avatars.githubusercontent.com/u/200938346?s=400&v=4" 
-         alt="Foto de perfil do github" 
-         width="200" height="200" 
-         title="foto de perfil do github">
-
+    alt="Foto de perfil do github" 
+    width="200" 
+    height="200" 
+    title="foto de perfil do github"
+    class="foto-perfil"
+  />
 
     <p>
         <a href="https://github.com/joaomarcos33/"></a>
@@ -41,16 +45,17 @@
 
 <section id="sobreMim">
    <h1>sobre mim</h1>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, itaque.</p>
+   <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis beatae tempora ab atque 
+    itaque eaque illum est debitis doloremque.<br>Itaque similique neque, atque corrupti quam dolores 
+    laborum nobis ab vel,<br> velit, tempora asperiores necessitatibus maxime autem optio error laudantium 
+    quas.Doloremque unde iusto reprehenderit nostrum quidem dolorum odit, alias fugiat!</li>
 </section>
-  <ul>
     <section id="formacaoAcademica">
     <h2>formação academica</h2>
     <li>ensino fundamental completo pelo SESI</li>
     <li>se formando no ensino medio do SESI</li>
     <li>se formando em inglês</li>
     <li>cursnado desenvolvimento de sistemas no senai</li>
-  </ul>
 </section>
 
 <section id="hardSkills">
@@ -89,8 +94,8 @@
 
 <section id="meusArtigos">
     <h2>Meus artigos</h2>
-    <li> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi ea delectus 
-        eligendi quos reprehenderit fuga adipisci ex deserunt excepturi? Dicta rerum ipsa eum iste 
+    <li> Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br> Commodi ea delectus 
+        eligendi quos reprehenderit fuga adipisci ex deserunt excepturi?<BR> Dicta rerum ipsa eum iste 
         inventore nulla quasi ut deleniti soluta!</li>
 </section>
 
@@ -111,6 +116,58 @@
 
     
 </section>
+
+<script>
+    const canvas = document.getElementById("canvasEstrelas");
+    const ctx = canvas.getContext("2d");
+    
+    function ajustarTamanhoCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    ajustarTamanhoCanvas();
+    window.addEventListener("resize", ajustarTamanhoCanvas);
+    
+    const estrelas = [];
+    
+    for (let i = 0; i < 300; i++) {
+      estrelas.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        raio: Math.random() * 1.5 + 0.5,
+        brilho: Math.random(),
+        apagando: Math.random() > 0.5,
+        cintilacao: 0.01 + Math.random() * 0.02
+      });
+    }
+    
+    function desenharEstrelas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+      for (let estrela of estrelas) {
+        ctx.beginPath();
+        ctx.arc(estrela.x, estrela.y, estrela.raio, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(255, 255, 255, ${estrela.brilho})`;
+        ctx.fill();
+    
+        if (estrela.apagando) {
+          estrela.brilho -= estrela.cintilacao;
+          if (estrela.brilho <= 0.1) estrela.apagando = false;
+        } else {
+          estrela.brilho += estrela.cintilacao;
+          if (estrela.brilho >= 1) estrela.apagando = true;
+        }
+      }
+    
+      requestAnimationFrame(desenharEstrelas);
+    }
+    
+    desenharEstrelas();
+    </script>
+    
+
+
 </body>
 </html>
 
